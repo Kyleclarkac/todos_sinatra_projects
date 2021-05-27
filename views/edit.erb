@@ -1,0 +1,25 @@
+
+<% list = session[:lists][@index] %>
+<section id="todos">
+<header>
+    <h2>The list you are editing is: "<%= list[:name] %>"</h2>
+    <ul>
+      <li><a class="delete" href=edit/delete>Delete</a></li>
+    <ul>
+</header>
+</section>
+
+<form action="/lists/<%=@index%>/edit" method="post">
+<dl>
+  <dt>
+    <label for="list_name"> Change the name of your list:</label>
+  </dt>
+  <dd>
+    <input name="list_name" placeholder=<%=session[:lists][@index][:name]%> type="text" value="">
+  </dd>
+</dl>
+<fieldset class="actoins">
+<input type="submit" value="Save">
+<a href="/lists/<%=@index%>">Cancel</a>
+</fieldset>
+</form>

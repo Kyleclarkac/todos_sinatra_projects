@@ -1,0 +1,19 @@
+
+
+<ul id="lists">
+  <% @lists.each.with_index do |list, index| %>
+    <%if list[:complete]%>
+      <li class="complete">
+    <%else%>
+      <li>
+    <%end%>
+      <a href=<%="lists/#{index}"%>>
+        <h2><%= list[:name] %></h2>
+        <p><%= complete_count(list) %>/<%= list[:todos].size %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<% content_for :header_links do %>
+<a class="add" href="/lists/new">New List</a>
+<%end%>
