@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if developement?
 require 'tilt/erubis'
 require 'sinatra/content_for'
 
